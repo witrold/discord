@@ -1,3 +1,3 @@
 # discord
 
-Bot discord multifoncti en cours de création
+Bot discord multifonction en cours de création
