@@ -1,6 +1,6 @@
 const { booleanTrue } = require('@sapphire/shapeshift')
 const Discord = require('discord.js')
-
+const { EmbedBuilder } = require('discord.js')
 
 module.exports = {
     
@@ -23,7 +23,7 @@ module.exports = {
     ],
 
     async run(bot, message, args) {
-            
+         
         let user = args.getUser("membre")
         if(!user) return message.reply("Pas de membre a kick")
         let member = message.guild.members.cache.get(user.id)
@@ -37,9 +37,21 @@ module.exports = {
         if(member && !member.kickable) return message.reply("Je ne peux pas kick ce membre !!!")
         if(member && message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("Tu peux pas kick cette personne !!!")
 
-        try {await user.send(`Tu as été kick du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)} catch(err) {}
+    //////////////////////////////////////////// Mise en place des embed /////////////////////////////////////////////////////////// 
+        
+        const kickserveur = new EmbedBuilder()
+        .setColor(0xFF0000)
+        .setDescription(`${message.user} a kick ${user.tag} pour la raison : \`${reason}\``)
 
-        await message.reply(`${message.user} a kick ${user.tag} pour la raison : \`${reason}\``)
+        const kickpriver = new EmbedBuilder()
+        .setColor(0xFF0000)
+        .setDescription(`Tu as été kick du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        try {await user.send({ embeds: [kickpriver] })} catch(err) {}
+
+        await message.reply({ embeds: [kickserveur] })
 
         await member.kick(reason)
     }

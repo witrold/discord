@@ -1,5 +1,6 @@
-const { booleanTrue } = require('@sapphire/shapeshift')
 const Discord = require('discord.js')
+const { cp } = require('fs')
+const { EmbedBuilder } = require('discord.js')
 
 
 module.exports = {
@@ -24,31 +25,38 @@ module.exports = {
 
     async run(bot, message, args) {
 
-        try {
+    
             
-            let user = await bot.users.fetch(args._hoistedOptions[0].value)
-            if(!user) return message.reply("Pas de membre a banir")
-            let member = message.guild.members.cache.get(user.id)
+        let user = await bot.users.fetch(args._hoistedOptions[0].value)
+        if(!user) return message.reply("Pas de membre a banir")
+        let member = message.guild.members.cache.get(user.id)
             
-            let reason = args.getString("raison")
-            if(!reason) reason = "pas de raison fournit";
+        let reason = args.get("raison").value;
+        if(!reason) reason = "pas de raison fournit";
 
-            if(message.user.id === user.id) return message.reply("essaie pas de te banir")
-            if((await message.guild.fetchOwner()).id === user.id) return message.reply("Ne peux pas ban le propriéter du serveur !!!")
-            if(member && !member.bannable) return message.reply("Je ne peux pas bannir ce membre !!!")
-            if(member && message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("Tu peux pas bannir cette personne !!!")
-            if((await message.guild.bans.fetch()).get(user.id)) return message.reply("Ce membre est déja ban !!!")
+        if(message.user.id === user.id) return message.reply("Essaie pas de te banir")
+        if((await message.guild.fetchOwner()).id === user.id) return message.reply("Ne peux pas ban le propriéter du serveur !!!")
+        if(member && !member.bannable) return message.reply("Je ne peux pas bannir ce membre !!!")
+        if(member && message.member.roles.highest.comparePositionTo(member.roles.highest) <= 0) return message.reply("Tu peux pas bannir cette personne !!!")
+        if((await message.guild.bans.fetch()).get(user.id)) return message.reply("Ce membre est déja ban !!!")
+        
+        //////////////////////////////////////////// Mise en place des embed /////////////////////////////////////////////////////////// 
 
-            try {await user.send(`Tu as été banni du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)} catch(err) {}
+        const banserver = new EmbedBuilder()
+        .setColor(0xFF0000)
+        .setDescription(`${message.user} a ban ${user.tag} pour la raison : \`${reason}\``)
 
-            await message.reply(`${message.user} a banni ${user.tag} pour la raison : \`${reason}\``)
+        const banpriver = new EmbedBuilder()
+        .setColor(0xFF0000)
+        .setDescription(`Tu as été ban du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)
 
-            await message.guild.bans.create(user.id, {reason: reason})
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        } catch (err) {
+        try {await user.send({ embeds: [banpriver] })} catch(err) {}
             
-            return message.reply("Pas de membre a banir")
-        }
+        await message.reply({ embeds: [banserver] })
+
+        await message.guild.bans.create(user.id, {reason: reason})
         
     }
 }
