@@ -8,7 +8,7 @@ module.exports = {
     permisson: "Aucune",
     dm: true,
 
-    async run(bot, message) {
+    async run(bot, message, args) {
 
         const exampleEmbed = new EmbedBuilder()
 	.setColor(0xFF0000)
