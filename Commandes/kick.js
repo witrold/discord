@@ -18,7 +18,7 @@ module.exports = {
             type: "string",
             name: "raison",
             description: "la raison du kick",
-            required: true
+            required: true,
         }
     ],
 
@@ -56,3 +56,4 @@ module.exports = {
         await member.kick(reason)
     }
 }
+

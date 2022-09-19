@@ -13,6 +13,6 @@
     "@discordjs/rest": "^1.1.0",
     "discord.js": "^14.3.0",
     "fs": "^0.0.1-security",
-    "splite": "^0.0.0"
+    "ms": "^2.1.3"
   }
 }
