@@ -31,7 +31,7 @@ module.exports = {
         if(!user) return message.reply("Pas de membre a banir")
         let member = message.guild.members.cache.get(user.id)
             
-        let reason = args.getString("raison");
+        let reason = args.getString("raison")
         if(!reason) reason = "pas de raison fournit";
 
         if(message.user.id === user.id) return message.reply("Essaie pas de te banir")
