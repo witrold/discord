@@ -32,7 +32,7 @@ module.exports = {
         let user = args.getUser("membre")
         if(!user) return message.reply("Pas de membre !")
         let member = message.guild.members.cache.get(user.id)
-        if(!user) return message.reply("Pas de membre !")
+        if(!member) return message.reply("Pas de membre !")
 
         let time = args.getString("temps")
         if(!time) return message.reply("Pas de temps !")
