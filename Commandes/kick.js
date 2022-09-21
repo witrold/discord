@@ -6,7 +6,7 @@ module.exports = {
     
     name: "kick",
     description: "kick",
-    permisson: Discord.PermissionFlagsBits.kickMembers,
+    permission: Discord.PermissionFlagsBits.kickMembers,
     dm: false,
     options: [
         {

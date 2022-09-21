@@ -4,7 +4,7 @@ const { EmbedBuilder } = require('discord.js')
 module.exports = {
     name: "ping",
     description: "affiche le ping",
-    permisson: "Aucune",
+    permission: "Aucune",
     dm: true,
     
 

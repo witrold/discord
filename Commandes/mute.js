@@ -6,7 +6,7 @@ module.exports = {
 
     name: "mute",
     description: "mute un membre",
-    permisson: Discord.PermissionFlagsBits.ModerateMembers,
+    permission: Discord.PermissionFlagsBits.ModerateMembers,
     dm: false,
     options: [
         {

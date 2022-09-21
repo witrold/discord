@@ -7,7 +7,7 @@ module.exports = {
     
     name: "unban",
     description: "unban un membre",
-    permisson: Discord.PermissionFlagsBits.BanMembers,
+    permission: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
     options: [
         {
