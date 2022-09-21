@@ -38,12 +38,6 @@ module.exports = {
             await message.reply({content: `\`${messages.size}\` message(s) ont été supprimés dans le salon ${channel} !`, ephemeral: true})
 
         } catch (err) {
-
-            let messages = [...(await channel.messages.fetch()).filter(msg => !msg.interaction && (Date.now() - msg.createdAt) <= 1209600000).values()]
-            if(messages.length <= 0) return message.reply("Aucun message n'a été supprimé, ils datent tous de plus de 14 jours !")
-            await channel.bulkDelete(messages)
-
-            await message.reply({content: `Seul \`${messages.length}\` message(s) ont été supprimés, car le reste date de plus de 14 jours !`, ephemeral: true})
         }
     }
 }

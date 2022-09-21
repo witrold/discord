@@ -28,12 +28,11 @@ module.exports = {
         .setDescription(`
         **__▶ Informations sur l'utilisateur :__**
         
-        > 📇 **Nom de l'utilisateur :** \`${user.tag}\` | <@${user.id}>
+        > 📇 **Nom de l'utilisateur :** \`${user.tag}\`
         > 🏷️ **Tag :** \`${user.discriminator}\`
         > 🔗 **Avatar URL :** **[URL](${user.displayAvatarURL({dynamic: true})})**
         > 🆔 **ID de l'utilisateur :** ${user.id}
         > 👋 **Rejoind discord le :** \`${moment(user.createdAt).format('DD MMMM YYYY : h:mm:ss')}\`
-        > 🙋‍♂️ **Rejoind le serveur le :** \`${moment(user.joinedAt).format('DD MMMM YYYY : h:mm:ss')}\`
         `)
 
         await message.reply({embeds: [userInfoEmbed], ephemeral: false})
