@@ -1,4 +1,6 @@
 # discord
 
-Bot discord multifonction en cours de création
+Bot discord multifonction en cours de création 
+
+Version : 0.3
 
