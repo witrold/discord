@@ -6,12 +6,13 @@ module.exports = {
     description: "affiche le ping",
     permission: "Aucune",
     dm: true,
+    category: "Information",
     
 
     async run(bot, message, args) {
 
         const exampleEmbed = new EmbedBuilder()
-	.setColor(0xFF0000)
+	.setColor(bot.color)
 	.setDescription(`Le ping est de \`${bot.ws.ping}\` ms`)
         
         await message.reply({ embeds: [exampleEmbed] })

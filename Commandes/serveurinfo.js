@@ -7,6 +7,7 @@ module.exports = {
     description: "affiche des information sur le serveurs",
     permission: "Aucune",
     dm: false,
+    category: "Information",
 
     async run(bot, message) {
 
@@ -14,7 +15,7 @@ module.exports = {
         var tempse = moment(message.guild.createdAt).format('DD MMMM YYYY : h:mm:ss');
             
         const EmbedServeurCount = new EmbedBuilder()
-    .setColor(0xFF0000)
+    .setColor(bot.color)
     .addFields({ name: "Date de création du serveur :", value: `⏲️ ${tempse}`, inline: false })
     .addFields({ name: "Nombre de boost :", value: `💰 ${message.guild.premiumSubscriptionCount}`, inline: false })
     .addFields({ name: "Membres totaux :", value: `👥 ${message.guild.memberCount}`, inline: false })

@@ -8,22 +8,26 @@ module.exports = {
     description: "mute un membre",
     permission: Discord.PermissionFlagsBits.ModerateMembers,
     dm: false,
+    category: "Modération",
     options: [
         {
             type: "user",
             name: "membre",
             description: "le membre a mute",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "string",
             name: "temps",
             description: "temps du mute",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "string",
             name: "raison",
             description: "raison du mute",
-            required: true
+            required: true,
+            autocomplete: false
         }  
     ],
 

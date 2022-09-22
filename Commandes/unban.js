@@ -9,17 +9,20 @@ module.exports = {
     description: "unban un membre",
     permission: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
+    category: "Modération",
     options: [
         {
             type: "user",
             name: "utilisateur",
             description: "le membre a unban",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "string",
             name: "raison",
             description: "la raison du unban",
-            required: true
+            required: true,
+            autocomplete: false
         }
     ],
 
@@ -38,11 +41,11 @@ module.exports = {
         //////////////////////////////////////////// Mise en place des embed /////////////////////////////////////////////////////////// 
 
         const unbanserver = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`${message.user} a unban ${user.tag} pour la raison : \`${reason}\``)
 
         const unbanpriver = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`Tu as été unban du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,17 +9,20 @@ module.exports = {
     description: "ban un membre",
     permission: Discord.PermissionFlagsBits.BanMembers,
     dm: false,
+    category: "Modération",
     options: [
         {
             type: "user",
             name: "membre",
             description: "le membre a bannir",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "string",
             name: "raison",
             description: "la raison du ban",
-            required: true
+            required: true,
+            autocomplete: false
         }
     ],
 
@@ -43,11 +46,11 @@ module.exports = {
         //////////////////////////////////////////// Mise en place des embed /////////////////////////////////////////////////////////// 
 
         const banserver = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`${message.user} a ban ${user.tag} pour la raison : \`${reason}\``)
 
         const banpriver = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`Tu as été ban du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

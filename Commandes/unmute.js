@@ -8,17 +8,20 @@ module.exports = {
     description: "Unmute un membre",
     permission: Discord.PermissionFlagsBits.ModerateMembers,
     dm: false,
+    category: "Modération",
     options: [
         {
             type: "user",
             name: "membre",
             description: "le membre a unmute",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "string",
             name: "raison",
             description: "raison du unmute",
-            required: true
+            required: true,
+            autocomplete: false
         }  
     ],
 
@@ -39,11 +42,11 @@ module.exports = {
         //////////////////////////////////////////// Mise en place des embed /////////////////////////////////////////////////////////// 
         
         const unmuteserveur = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`${message.user} a unmute ${user.tag} pour la raison : \`${reason}\``)
 
         const unmutepriver = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`Vous as été unmute du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)
     
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

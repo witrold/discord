@@ -6,18 +6,20 @@ module.exports = {
     description: "Clear des messages d'un salon",
     permission: Discord.PermissionFlagsBits.ManageMessages,
     dm: false,
-    category: ":mod: Modération",
+    category: "Modération",
     options: [
         {
             type: "number",
             name: "nombre",
             description: "Le nombre de messages à supprimer",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "channel",
             name: "salon",
             description: "Le salon à clear",
-            required: false
+            required: false,
+            autocomplete: false
         }
     ],
 

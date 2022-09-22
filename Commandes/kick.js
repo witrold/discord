@@ -8,17 +8,20 @@ module.exports = {
     description: "kick",
     permission: Discord.PermissionFlagsBits.KickMembers,
     dm: false,
+    category: "Modération",
     options: [
         {
             type: "user",
             name: "membre",
             description: "le membre a kick",
-            required: true
+            required: true,
+            autocomplete: false
         }, {
             type: "string",
             name: "raison",
             description: "la raison du kick",
             required: true,
+            autocomplete: false
         }
     ],
 
@@ -40,11 +43,11 @@ module.exports = {
     //////////////////////////////////////////// Mise en place des embed /////////////////////////////////////////////////////////// 
         
         const kickserveur = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`${message.user} a kick ${user.tag} pour la raison : \`${reason}\``)
 
         const kickpriver = new EmbedBuilder()
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`Tu as été kick du serveur ${message.guild.name} par ${message.user.tag} pour la raison : \`${reason}\``)
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

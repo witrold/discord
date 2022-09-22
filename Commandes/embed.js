@@ -8,12 +8,14 @@ module.exports = {
   description: "Permet d'envoyer un message en embed",
   permission: Discord.PermissionFlagsBits.ManageMessages,
   dm: false,
+  category: "Modération",
   options: [
     {
         type: "string",
         name: "text",
         description: "Le message a envoyer.",
         required: true,
+        autocomplete: false
     }
 ],
 
@@ -21,7 +23,7 @@ async run(bot, message, args) {
     let msg = args.getString("text");
 
         const EmbedMessage  = new EmbedBuilder()
-            .setColor(0xFF0000)
+            .setColor(bot.color)
             .setDescription(`${msg}`)
 
             

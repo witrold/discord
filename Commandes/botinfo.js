@@ -8,6 +8,7 @@ module.exports = {
     description: "affiche des information sur le bot",
     permission: "Aucune",
     dm: true,
+    category: "Information",
 
     async run(bot, message, client) {
  
@@ -18,9 +19,9 @@ module.exports = {
         moment.locale('fr')
 
         const EmbedServeurCount = new EmbedBuilder()
-    .setColor(0xFF0000)
+    .setColor(bot.color)
     .addFields({ name: "Le bot est on depuis :", value: `⏲️ ${duration}`, inline: false })
-    .addFields({ name: "Le bot est en version :", value: `📒 ${`V 0.3`}`, inline: false })
+    .addFields({ name: "Le bot est en version :", value: `📒 ${`V : 0.4`}`, inline: false })
     await message.reply({embeds: [EmbedServeurCount]})
         
     }

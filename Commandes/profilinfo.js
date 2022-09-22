@@ -8,12 +8,14 @@ module.exports = {
     description: "affiche des information sur votre compte",
     permisson: "Aucune",
     dm: true,
+    category: "Information",
     options: [
         {
             type: "user",
             name: "user",
             description: "The user you want to get info",
-            required: true
+            required: true,
+            autocomplete: false
         }
     ],
 
@@ -24,7 +26,7 @@ module.exports = {
         let userInfoEmbed = new Discord.EmbedBuilder()
         .setTitle(`${user.tag}'s infos`)
         .setThumbnail(user.displayAvatarURL({dynamic: true}))
-        .setColor(0xFF0000)
+        .setColor(bot.color)
         .setDescription(`
         **__▶ Informations sur l'utilisateur :__**
         
