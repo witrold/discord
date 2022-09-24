@@ -21,7 +21,7 @@ module.exports = {
         const EmbedServeurCount = new EmbedBuilder()
     .setColor(bot.color)
     .addFields({ name: "Le bot est on depuis :", value: `⏲️ ${duration}`, inline: false })
-    .addFields({ name: "Le bot est en version :", value: `📒 ${`V : 0.4`}`, inline: false })
+    .addFields({ name: "Le bot est en version :", value: `📒 ${`V : 0.5`}`, inline: false })
     await message.reply({embeds: [EmbedServeurCount]})
         
     }

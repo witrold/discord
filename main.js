@@ -7,6 +7,9 @@ const config = require('./config')
 
 bot.commands = new Discord.Collection()
 bot.color = "#FF0000";
+bot.function = {
+    createId : require("./Fonctions/createID")
+}
 
 bot.login(config.token)
 loadCommands(bot)
