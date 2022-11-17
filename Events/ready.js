@@ -6,12 +6,12 @@ module.exports = async (bot, client) => {
 
     bot.db = await loadDatabase()
     bot.db.connect(function () {
-
+        console.log('--------------------------------------------------------');
         console.log("base de données connectée avec succés")
     })
     
     await loadSlashCommands(bot)
-
+    console.log('--------------------------------------------------------');
     console.log(`${bot.user.tag} est bien en ligne`)
 
 }

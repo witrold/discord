@@ -1,17 +1,29 @@
-const fs = require("fs")
+const pathJoin = require('node:path').join;
+const { readdirSync, lstatSync } = require('node:fs');
+const { Collection, Client } = require("discord.js");
 
-module.exports = async bot => {
-
-    console.log("Chargment des commande :")
-
-    fs.readdirSync("./Commandes").filter(f => f.endsWith(".js")).forEach(async file => {
-        
-        let command = require(`../Commandes/${file}`)
-        if(!command.name || typeof command.name !== "string") throw new TypeError(`la commande ${file.slic(0, file.length - 3)} na pas de nom`)
-        bot.commands.set(command.name, command)
-        console.log(`commande ${file} chargée avec succés`)
-    })
-
-    console.log("Tous les commandes sont chargée")
-    
-}
+/**
+ * Load the commands
+ * @param {string} basePath
+ * @returns {Collection<string, object>}
+ * @this Client
+ */
+module.exports = function loadCommands(basePath) {
+    console.log('-----------------Chargement des commande----------------');
+    console.log('Loading commands...');
+    this.commands = new Collection();
+    const scanDir = path => {
+        for (const thing of readdirSync(path)) {
+            const full = pathJoin(path, thing);
+            if (lstatSync(full).isDirectory()) scanDir(full + '\\');
+            else {
+                const cmd = require(full);
+                this.commands.set(cmd.name, cmd);
+                console.log('| ' + cmd.name);
+            }
+        }
+    };
+    scanDir(pathJoin(process.cwd(), basePath));
+    console.log('Commands loaded!');
+    return this.commands;
+};

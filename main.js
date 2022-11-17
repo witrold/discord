@@ -4,13 +4,13 @@ const bot = new Discord.Client({intents})
 const loadCommands = require('./Loaders/loadCommands')
 const loadEvents = require('./Loaders/loadEvents')
 const config = require('./config')
+require(`./anti-crash.js`)();
 
-bot.commands = new Discord.Collection()
 bot.color = "#FF0000";
 bot.function = {
     createId : require("./Fonctions/createID")
 }
 
 bot.login(config.token)
-loadCommands(bot)
+loadCommands.bind(bot)('./Commandes/');
 loadEvents(bot)

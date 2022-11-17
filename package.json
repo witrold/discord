@@ -11,12 +11,15 @@
   "dependencies": {
     "@discordjs/builders": "^1.2.0",
     "@discordjs/rest": "^1.1.0",
+    "discord-giveaway-easy": "^3.1.7",
     "discord-html-transcripts": "^2.6.1",
     "discord.js": "^14.3.0",
     "fs": "^0.0.1-security",
     "moment": "^2.29.4",
     "moment-duration-format": "^2.3.2",
+    "moment-timezone": "^0.5.37",
     "ms": "^2.1.3",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "sb-scandir": "^3.1.0"
   }
 }
