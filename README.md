@@ -2,5 +2,5 @@
 
 Bot discord multifonction en cours de création 
 
-Version : 0.5
+Version : 0.6
 
