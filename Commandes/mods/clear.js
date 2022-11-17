@@ -6,7 +6,7 @@ module.exports = {
     description: "Effacer beaucoup de messages",
     permission: Discord.PermissionFlagsBits.ManageMessages,
     dm: false,
-    category: "⚖️・Modération",
+    category: "Modération",
     options: [
         {
             type: "number",
