@@ -19,12 +19,12 @@ module.exports = {
         moment.locale('fr')
 
         let botInfoEmbed = new Discord.EmbedBuilder()
-        .setTitle(`${bot.tag}'s infos`)
+        .setTitle(`Witbot infos`)
         .setColor(bot.color)
         .setDescription(`
         **__▶ Informations sur le bot :__**
         
-        > 📒 **Le bot est en version :** \`${`V : 0.5`}\`
+        > 📒 **Le bot est en version :** \`${`V : 0.7`}\`
         > 🏷️ **Le bot est sur** \`${bot.guilds.cache.size}\` **serveur**
         > 🏷️ **Le bot modére** \`${bot.users.cache.size}\` **membre**
         `)

@@ -29,7 +29,7 @@ module.exports = async bot => {
 
   await rest.put(Routes.applicationCommands(bot.user.id), {body: commands})
     setInterval(async () => {
-        const Statut_Random_AutoChange = [`${bot.users.cache.size} membres`,`${bot.guilds.cache.size} serveurs`,`la version 0.5`][Math.floor(Math.random() * [`${bot.guilds.cache.size} serveurs`,`${bot.users.cache.size} membres`,`la version 0.5`].length)];
+        const Statut_Random_AutoChange = [`${bot.users.cache.size} membres`,`${bot.guilds.cache.size} serveurs`,`la version ${bot.version}`][Math.floor(Math.random() * [`${bot.guilds.cache.size} serveurs`,`${bot.users.cache.size} membres`,`la version 0.5`].length)];
         bot.user.setPresence({activities: [{name: `${Statut_Random_AutoChange}`, type: ActivityType.Watching}]})
     }, 5000);
   console.log('--------------------------------------------------------');

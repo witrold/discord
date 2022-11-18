@@ -20,5 +20,6 @@ module.exports = async (bot, interaction) => {
         const command = interaction.client.commands.get(interaction.commandName);
         command.run(bot, interaction, interaction.options, bot.db)
     }
+
 }
  
