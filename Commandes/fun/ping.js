@@ -6,7 +6,7 @@ module.exports = {
     description: "affiche le ping",
     permission: "Aucune",
     dm: true,
-    category: "Information",
+    category: "fun",
     
 
     async run(bot, message, args) {

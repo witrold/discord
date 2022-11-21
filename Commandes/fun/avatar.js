@@ -6,7 +6,7 @@ module.exports = {
     description: "Avoir l'avatar de quelqu'un",
     permission: "Aucune",
     dm: true,
-    category: ":compass:・Information",
+    category: "fun",
     options: [
         {
         type: "user",
