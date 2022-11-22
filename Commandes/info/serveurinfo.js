@@ -23,7 +23,7 @@ module.exports = {
     .addFields({ name: "Humain :", value: `👤 ${message.guild.members.cache.filter(member => !member.user.bot).size}`, inline: false })
     .addFields({ name: "Bot :", value: `🤖 ${message.guild.members.cache.filter(member => member.user.bot).size}`, inline: false })
     .addFields({ name: "Nombre de role :", value: `🧙🏼‍♂️ ${message.guild.roles.cache.size}`, inline: false })
-    
+
     await message.reply({embeds: [EmbedServeurCount]})
 
     }

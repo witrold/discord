@@ -6,7 +6,7 @@ const loadEvents = require('./Loaders/loadEvents')
 const config = require('./config')
 require(`./anti-crash.js`)();
 
-bot.version = "0.8"
+bot.version = "0.9"
 bot.color = "DarkBlue";
 bot.function = {
     createId : require("./Fonctions/createID")
