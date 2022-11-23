@@ -9,7 +9,7 @@ require(`./anti-crash.js`)();
 bot.version = "0.9"
 bot.color = "DarkBlue";
 bot.function = {
-    createId : require("./Fonctions/createID")
+    generateCaptcha: require("./Fonctions/generateCaptcha")
 }
 
 bot.login(config.token)

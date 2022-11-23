@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
 
 module.exports = {
-    token: "MTAxODU1MDQ0OTgyMzAzOTYxMA.GHmaiC.0iPWVremG0GlzJiZi22raFOhLY10z0TEiurZOg"
+    token: "MTAxODU1MDQ0OTgyMzAzOTYxMA.GaxIfb.KcRZAlXgHsCMCLt7SewuFep_YJ2N6xEnmfOai0"
 }
